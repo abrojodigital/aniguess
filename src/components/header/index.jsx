@@ -3,7 +3,8 @@ import { Image, Text, View } from 'react-native';
 import React from 'react';
 import { styles } from './styles';
 
-const Header = ({ title }) => {
+const Header = ({ title, image }) => {
+  console.log(image)
   return (
     <View style={styles.container}>
       <Image source={require('../../../assets/animales.png')} style={styles.image} resizeMode="cover"/>

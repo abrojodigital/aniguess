@@ -6,11 +6,11 @@ import { PressableButton } from '../../components'
 import { styles } from './styles';
 
 const animals = [
-  { name: 'León', clues: ['Es un felino', 'Tiene melena', 'Es un depredador'] },
-  { name: 'Elefante', clues: ['Es un animal muy grande', 'Tiene una trompa', 'Es herbívoro'] },
-  { name: 'Jirafa', clues: ['Tiene un cuello largo', 'Es un herbívoro', 'Vive en África'] },
-  { name: 'Pingüino', clues: ['No puede volar', 'Vive en el Polo Sur', 'Tiene plumas'] },
-  { name: 'Tigre', clues: ['Es un felino', 'Tiene rayas', 'Es un depredador'] },
+  { name: 'León', clues: ['Es un felino', 'Tiene melena', 'Es un depredador'], image:'../../data/animales/leon.png' },
+  { name: 'Elefante', clues: ['Es un animal muy grande', 'Tiene una trompa', 'Es herbívoro'], image:'../../data/animales/elefante.png' },
+  { name: 'Jirafa', clues: ['Tiene un cuello largo', 'Es un herbívoro', 'Vive en África'], image:'../../data/animales/jirafa.png' },
+  { name: 'Pingüino', clues: ['No puede volar', 'Vive en el Polo Sur', 'Tiene plumas'], image:'../../data/animales/penguin.png' },
+  { name: 'Tigre', clues: ['Es un felino', 'Tiene rayas', 'Es un depredador'], image:'../../data/animales/tigre.png' },
 ]
 
 const Game = () => {
@@ -47,11 +47,12 @@ const Game = () => {
 
   const handleGuess = () => {
     // Comprobar si la suposición del jugador es correcta
-    if (guess === currentAnimal.name) {
+    if (guess.toLowerCase() === currentAnimal.name.toLowerCase()) {
       setMsgGameOver('¡Correcto! Adivinaste.')
       setCurrentAnimal(null);
     } else {
       // Si la suposición es incorrecta, el jugador ha perdido un intento
+      Alert('Nope!')
       setAttempts(attempts - 1);
       setGuess('');
       if (attempts === 1) {
@@ -79,7 +80,7 @@ const Game = () => {
           <Text style={styles.label}>Intentos restantes: {attempts}</Text>
         </>
       ) : (
-        <GameOver title={msjGameOver} onRestart={startGame} />
+        <GameOver title={msjGameOver} onRestart={startGame}/>
       )}
     </View>
   );
