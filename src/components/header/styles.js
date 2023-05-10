@@ -5,7 +5,8 @@ export const styles = StyleSheet.create({
   container: {
     height: '33%',
     backgroundColor: theme.colors.primary,
-    marginTop: 33,
+    marginTop: '25%',
+    marginBottom: '10%',
     justifyContent: 'center',
     alignItems: 'center',
   },

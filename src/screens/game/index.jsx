@@ -1,6 +1,7 @@
 import { Text, TextInput, View } from 'react-native';
 import { useEffect, useState } from 'react';
 
+import { GameOver } from '../';
 import { PressableButton } from '../../components'
 import { styles } from './styles';
 
@@ -17,6 +18,7 @@ const Game = () => {
   const [clueIndex, setClueIndex] = useState(0);
   const [attempts, setAttempts] = useState(3);
   const [guess, setGuess] = useState('');
+  const [msjGameOver, setMsgGameOver] = useState('')
 
   const startGame = () => {
     // Elige un animal al azar de la lista
@@ -24,6 +26,7 @@ const Game = () => {
     setCurrentAnimal(animals[randomIndex])
     setClueIndex(0)
     setAttempts(3)
+    setGuess('')
   }
 
   useEffect(() => {
@@ -45,14 +48,14 @@ const Game = () => {
   const handleGuess = () => {
     // Comprobar si la suposición del jugador es correcta
     if (guess === currentAnimal.name) {
-      alert('¡Correcto! Has ganado el juego.');
+      setMsgGameOver('¡Correcto! Adivinaste.')
       setCurrentAnimal(null);
     } else {
       // Si la suposición es incorrecta, el jugador ha perdido un intento
       setAttempts(attempts - 1);
       setGuess('');
       if (attempts === 1) {
-        alert('Lo siento, has perdido el juego.');
+        setMsgGameOver('Lo siento. No Adivinaste.');
         setCurrentAnimal(null);
       }
     }
@@ -70,13 +73,13 @@ const Game = () => {
             onChangeText={(text) => setGuess(text)}
           />
           <View style={styles.buttonContainer}>
-            <PressableButton title="Siguiente pista" onPress={nextClue} />
+            <PressableButton title="Pista" onPress={nextClue} />
             <PressableButton title="Adivinar" onPress={handleGuess} />
           </View>
           <Text style={styles.label}>Intentos restantes: {attempts}</Text>
         </>
       ) : (
-        <PressableButton title="Reiniciar" onPress={startGame} />
+        <GameOver title={msjGameOver} onRestart={startGame} />
       )}
     </View>
   );

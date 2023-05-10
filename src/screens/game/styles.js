@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
     color: theme.colors.text,
     textAlign: 'center',
     paddingVertical: 30,
@@ -31,9 +31,9 @@ export const styles = StyleSheet.create({
   },
   input: {
     borderBottomColor: theme.colors.primary,
-    borderBottomWidth: 10,
+    borderBottomWidth: 5,
     minWidth: 70,
-    fontSize: 20,
+    fontSize: 24,
     textAlign: 'center',
     paddingVertical: 10,
   },

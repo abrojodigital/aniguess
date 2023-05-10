@@ -1,31 +1,42 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
+
+import { theme } from '../../constants';
+
+const { height, width } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: theme.colors.white,
+    alignContent: 'center',
   },
-  content: {
-    width: '80%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: 0,
+  containerKeyboardAvoidingView: {
+    flex: 1,
   },
-  image: {
-    width: '100%',
-    height: 200,
-  },
-  rounds: {
-    paddingVertical: 10,
+  title: {
     fontSize: 16,
-  },
-  selectedNumber: {
-    paddingVertical: 5,
-    fontSize: 16,
-  },
-  buttonContainer: {
+    color: theme.colors.text,
+    textAlign: 'center',
     paddingVertical: 20,
+    fontFamily: 'Inter-SemiBold',
+  },
+  inputContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 20,
+    height: height * 0.25,
+  },
+  inputContainerLandscape: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 20,
+    height: height * 0.4,
+  },
+  
+  buttonContainer: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'center',
+    marginTop: 10,
   },
 });

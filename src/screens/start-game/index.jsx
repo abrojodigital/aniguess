@@ -20,7 +20,7 @@ const StartGame = () => {
   }
 
   return (
-    <>
+    <View style={styles.container}>
       <Header title={'Adivina el animal'} />
       <View style={styles.buttonContainer}>
       <PressableButton
@@ -28,7 +28,7 @@ const StartGame = () => {
         onPress={handleGameScreenOpen}
       />
       </View>
-    </>
+    </View>
   );
 }
 

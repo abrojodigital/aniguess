@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.white,
+    alignContent: 'center',
   },
   containerKeyboardAvoidingView: {
     flex: 1,
@@ -37,22 +38,5 @@ export const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     marginTop: 10,
-  },
-  confirmedContainer: {
-    height: height * 0.25,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 40,
-    marginHorizontal: 20,
-  },
-  confirmedContainerLandscape: {
-    height: height * 0.4,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 40,
-    marginHorizontal: 20,
-  },
-  confirmedTitle: {
-    fontSize: 16,
   },
 });
